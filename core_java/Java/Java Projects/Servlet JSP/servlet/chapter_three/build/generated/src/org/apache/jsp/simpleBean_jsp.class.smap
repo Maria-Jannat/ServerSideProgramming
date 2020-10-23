@@ -1,0 +1,15 @@
+SMAP
+simpleBean_jsp.java
+JSP
+*S JSP
+*F
++ 0 simpleBean.jsp
+simpleBean.jsp
+*L
+1:44,12
+1:50
+2:51,3
+3,16:56
+19,2:72,3
+21,14:78
+*E

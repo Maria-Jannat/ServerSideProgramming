@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+            <h:form>
+                <h2>Search Flights</h2>
+                <h:outputText value="What type of flight do you need?"/>
+                <h:selectOneRadio layout="lineDirection"
+                                  value="#{flight.tripType}"
+                                  valueChangeListener="#{flight.typeChanged}"
+                                  onclick="submit()"
+                                  immediate="true">
+                    <f:selectItems value="#{types.tripTypes}"/>
+                </h:selectOneRadio>
+                <p/>
+                <table>
+                    <tr><td colspan="4">Where and when do you want to travel?</td></tr>
+                    <tr>
+                        <td colspan="2">Leaving from:</td>
+                        <td colspan="2">Going to:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h:inputText id="origination"
+                                         value="#{flight.origination}" size="35"/>
+                            <h:message for="origination"/>
+                        </td>
+                        <td colspan="2">
+                            <h:inputText id="destination"
+                                         value="#{flight.destination}" size="35"/>
+                            <h:message for="destination"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Departing:</td>
+                        <td colspan="2">
+                            <c:if test="${flight.tripType == 'One Way'}">
+
+                            </c:if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:inputText id="departDate" value="#{flight.departDate}">
+                                <f:convertDateTime pattern="MM/dd/yy"/>
+                                <f:validator validatorId="date.validator"/>
+                            </h:inputText>
+                            <h:message for="departDate"/>
+                        </td>
+                        <td>
+                            <h:selectOneMenu value="#{flight.departTime}" id="departTimes">
+                                <f:selectItems value="#{times.times}"/>
+                            </h:selectOneMenu>
+                        </td>
+                        <td>
+                            <c:if test="${flight.tripType == 'One Way'}">
+
+                            </c:if>
+                        </td>
+                            <td>
+                                <c:if test="${flight.tripType == 'One Way'}">
+
+                                </c:if>
+                            </td>
+                    </tr>
+                </table>
+                <p>
+
+                    <h:commandButton value="Search"
+                                     action="#{flight.search}"/>
+                </p>
+            </h:form>
+    </h:body>
+</html>
+

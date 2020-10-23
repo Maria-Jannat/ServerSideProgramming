@@ -1,0 +1,12 @@
+SMAP
+templateText_jsp.java
+JSP
+*S JSP
+*F
++ 0 templateText.jsp
+templateText.jsp
+*L
+5,17:44
+22:61,3
+23,11:64
+*E

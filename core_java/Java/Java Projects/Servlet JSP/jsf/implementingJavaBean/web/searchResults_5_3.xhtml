@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h3>You entered these search parameters</h3>
+        <p>Trip Type : <h:outputText value="#{flight.tripType}"/></p>
+        <p>Origination: <h:outputText value="#{flight.origination}"/></p>
+        <p>Depart date: <h:outputText value="#{flight.departDate}"/></p>
+        <p>Depart time: <h:outputText value="#{flight.departTime}"/></p>
+        <p>Destination: <h:outputText value="#{flight.destination}"/></p>
+        <p>Return date: <h:outputText value="#{flight.returnDate}"/></p>
+        <p>Return time: <h:outputText value="#{flight.returnTime}"/></p>
+        <p>Matching Flights</p>
+        <p><h:outputText value="#{flight.matchingFlights[0]}"/></p>
+        <p><h:outputText value="#{flight.matchingFlights['1']}"/></p>
+    </h:body>
+</html>
+

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+        <from-view-id>index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>submit</from-outcome>
+            <!--<to-view-id>/result.mj</to-view-id>-->
+            <to-view-id>result.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+  
+    <managed-bean>
+        <managed-bean-name>flight</managed-bean-name>
+        <managed-bean-class>com.cesurazure.FlightSearch</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>matchingFlights</property-name>
+            <list-entries>
+                <value-class>com.cesurazure.Flight</value-class>
+                <value>#{flight1}</value>
+                <value>#{flight2}</value>
+            </list-entries>
+        </managed-property>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>times</managed-bean-name>
+        <managed-bean-class>com.cesurazure.FlightTimes</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>types</managed-bean-name>
+        <managed-bean-class>com.cesurazure.FlightTypes</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>flight1</managed-bean-name>
+        <managed-bean-class>com.cesurazure.Flight</managed-bean-class>
+        <managed-bean-scope>none</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>flight2</managed-bean-name>
+        <managed-bean-class>com.cesurazure.Flight</managed-bean-class>
+        <managed-bean-scope>none</managed-bean-scope>
+    </managed-bean>
+    <!--        <managed-property>
+            <property-name>times</property-name>
+            <list-entries>
+                <value>Morning</value>
+                <value>Afternoon</value>
+                <value>Evening</value>
+            </list-entries>
+        </managed-property>
+    </managed-bean>
+
+
+    -->
+
+    
+
+
+
+
+    <!--        
+        <managed-property>
+            <property-name>airportNames</property-name>
+            <map-entries>
+                <key-class>java.lang.String</key-class>
+                <value-class>java.lang.String</value-class>
+                <map-entry>
+                    <key>BOS</key>
+                    <value>Logan International Airport</value>
+                </map-entry>
+                <map-entry>
+                    <key>BOS</key>
+                    <value>Ankara International Airport</value>
+                </map-entry>
+            </map-entries>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>flight1</managed-bean-name>
+        <managed-bean-class>com.cesurazure.Flight</managed-bean-class>
+        <managed-bean-scope>none</managed-bean-scope>
+    </managed-bean>-->
+
+</faces-config>

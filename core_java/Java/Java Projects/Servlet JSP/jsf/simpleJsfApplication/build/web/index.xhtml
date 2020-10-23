@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+ <h:form>
+      <h2><h:outputText value="#{msgs.head}"/></h2>
+      <h:outputText value="#{msgs.type}"/>
+      <h:selectOneRadio layout="lineDirection"
+                        value="#{flight.tripType}">
+        <f:selectItems value="#{types.tripTypes}"/>
+      </h:selectOneRadio>
+      <p/>            
+      <table>
+        <tr><td colspan="4"><h:outputText value="#{msgs.searchLabel}"/></td></tr>
+        <tr>
+          <td colspan="2"><h:outputText value="#{msgs.departAirport}"/></td>
+          <td colspan="2"><h:outputText value="#{msgs.arriveAirport}"/></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <h:inputText id="origination" 
+               value="#{flight.origination}" size="35"/>
+            <h:message for="origination"/>
+          </td>
+          <td colspan="2">
+            <h:inputText id="destination"
+               value="#{flight.destination}" size="35"/>
+            <h:message for="destination"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><h:outputText value="#{msgs.departLabel}"/></td>
+          <td colspan="2"><h:outputText value="#{msgs.returnLabel}"/></td>
+        </tr>
+        <tr>
+          <td>
+            <h:inputText id="departDate" value="#{flight.departDate}">
+              <f:convertDateTime pattern="MM/dd/yy"/>
+              <f:validator validatorId="date.validator"/>
+            </h:inputText>
+            <h:message for="departDate"/>
+          </td>
+          <td>
+            <h:selectOneMenu value="#{flight.departTime}">
+              <f:selectItems value="#{times.times}"/>
+            </h:selectOneMenu>
+          </td>
+          <td>
+            <h:inputText id="returnDate" value="#{flight.returnDate}">
+              <f:convertDateTime pattern="MM/dd/yy"/>
+              <f:validator validatorId="date.validator"/>
+            </h:inputText>
+            <h:message for="returnDate"/>
+          </td>
+          <td>
+            <h:selectOneMenu value="#{flight.returnTime}">
+              <f:selectItems value="#{times.times}"/>
+            </h:selectOneMenu>
+          </td>
+        </tr>
+      </table>
+      <p>
+      <h:commandButton value="#{msgs.searchButton}" action="#{flight.search}"/>
+      </p>
+    </h:form>
+    </h:body>
+</html>
+

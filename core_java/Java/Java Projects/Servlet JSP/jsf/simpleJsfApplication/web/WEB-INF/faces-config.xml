@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>es</supported-locale>
+        </locale-config>
+    </application>
+
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>submit</from-outcome>
+            <to-view-id>/searchResults.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>no flights</from-outcome>
+            <to-view-id>/noFlights.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+   
+    <navigation-rule>
+        <from-view-id>/searchResults.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>select</from-outcome>
+            <to-view-id>/selectedFlight.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+  
+    <navigation-rule>
+        <navigation-case>
+            <from-action>#{flight.reset}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <converter>
+        <converter-for-class>com.cesurazure.domain.Airport</converter-for-class>
+        <converter-class>com.cesurazure.domain.AirportConverter</converter-class>
+    </converter>
+    
+    <validator>
+        <validator-id>date.validator</validator-id>
+        <validator-class>com.cesurazure.domain.DateValidator</validator-class>
+    </validator>
+   
+    <managed-bean> 
+        <managed-bean-name>flight</managed-bean-name>
+        <managed-bean-class>com.cesurazure.domain.FlightSearch</managed-bean-class> 
+        <managed-bean-scope>session</managed-bean-scope> 
+        <managed-property>
+            <property-name>matchingFlights</property-name>
+            <list-entries>
+                <value-class>com.cesurazure.domain.Flight</value-class>
+                <value>#{flight1}</value>
+                <value>#{flight2}</value>
+            </list-entries>      
+        </managed-property>
+    </managed-bean>
+    <managed-bean> 
+        <managed-bean-name>times</managed-bean-name>
+        <managed-bean-class>com.cesurazure.domain.FlightTimes</managed-bean-class> 
+        <managed-bean-scope>session</managed-bean-scope> 
+    </managed-bean>
+    <managed-bean> 
+        <managed-bean-name>types</managed-bean-name>
+        <managed-bean-class>com.cesurazure.domain.FlightTypes</managed-bean-class> 
+        <managed-bean-scope>session</managed-bean-scope> 
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>flight1</managed-bean-name>
+        <managed-bean-class>com.cesurazure.domain.Flight</managed-bean-class>
+        <managed-bean-scope>none</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>flight2</managed-bean-name>
+        <managed-bean-class>com.cesurazure.domain.Flight</managed-bean-class>
+        <managed-bean-scope>none</managed-bean-scope>
+    </managed-bean>
+</faces-config>
