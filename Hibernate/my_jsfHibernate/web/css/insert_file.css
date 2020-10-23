@@ -1,0 +1,15 @@
+.insert__form{
+     width: 60%;
+     height: auto;
+     margin: auto;
+     align-content: center;
+     text-align: center;
+     background-color: azure;
+}
+
+.text__{
+    width: 500px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+

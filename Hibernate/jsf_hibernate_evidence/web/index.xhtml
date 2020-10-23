@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <label>Name</label>
+            <h:inputText value="#{studentController.student.name}"/>
+            <label>Gender</label>
+            <h:selectOneRadio value="#{studentController.student.gender}">
+                <f:selectItem itemValue="male" itemLabel="Male"/>
+                <f:selectItem itemValue="female" itemLabel="Female"/>
+            </h:selectOneRadio>
+            <label>Email</label>
+            <h:inputText value="#{studentController.student.email}"/>
+            <label>Round</label>
+            <h:selectOneMenu value="#{studentController.student.round}">
+                <f:selectItem itemValue="Round 42" itemLabel="Round 42"/>
+                <f:selectItem itemValue="Round 43" itemLabel="Round 43"/>
+                <f:selectItem itemValue="Round 43" itemLabel="Round 43"/>
+            </h:selectOneMenu>
+            <label>Course Completed</label>
+            <h:selectManyCheckbox value="#{studentController.student.completedCourseName}">
+                <f:selectItem itemValue="ppt" itemLabel="PPT"/>
+                <f:selectItem itemValue="js" itemLabel="JS"/>
+                <f:selectItem itemValue="sql" itemLabel="SQL"/>
+                <f:selectItem itemValue="core java" itemLabel="Core Java"/>
+            </h:selectManyCheckbox>
+
+            <h:commandButton action="#{studentController.saveStudent()}" value="Submit"/>
+        </h:form>
+    </h:body>
+</html>
+
